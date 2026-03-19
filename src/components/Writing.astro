@@ -1,0 +1,25 @@
+---
+import Section from "./Section.astro";
+import { featuredWriting } from "../data/writing";
+---
+
+<Section
+  id="writing"
+  eyebrow="Writing"
+  title="Technical writing and notes"
+  copy="A small selection of writing that reflects how I communicate technical ideas."
+>
+  <div class="grid">
+    {
+      featuredWriting.map((item) => (
+        <article class="section-card" style="padding: 1.25rem;">
+          <h3 style="margin-top: 0;">{item.title}</h3>
+          <p style="color: var(--text-muted);">{item.description}</p>
+          <p style="margin-bottom: 0;">
+            <a class="button" href={item.url}>{item.platform} · {item.date}</a>
+          </p>
+        </article>
+      ))
+    }
+  </div>
+</Section>
