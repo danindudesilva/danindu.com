@@ -1,0 +1,27 @@
+---
+import { siteConfig } from "../data/site";
+import ThemeToggle from "./ThemeToggle.astro";
+---
+
+<header
+  style="position: sticky; top: 0; z-index: 50; border-bottom: 1px solid var(--border); background: color-mix(in srgb, var(--bg) 85%, transparent); backdrop-filter: blur(12px);"
+>
+  <div
+    class="container"
+    style="display: flex; align-items: center; justify-content: space-between; min-height: 4rem; gap: 1rem;"
+  >
+    <a href="/" style="font-weight: 700;">{siteConfig.name}</a>
+
+    <nav style="display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;">
+      {
+        siteConfig.nav.map((item) => (
+          <a href={item.href} style="color: var(--text-muted); font-weight: 500;">
+            {item.label}
+          </a>
+        ))
+      }
+      <a class="button" href={siteConfig.cta.resume} target="_blank" rel="noreferrer">CV</a>
+      <ThemeToggle />
+    </nav>
+  </div>
+</header>
