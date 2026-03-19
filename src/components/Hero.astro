@@ -26,8 +26,8 @@ import { siteConfig } from "../data/site";
       <p><strong>Location:</strong> {profile.location}</p>
       <p><strong>Availability:</strong> {profile.availability}</p>
       <p><strong>Focus:</strong></p>
-      <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-        {profile.technologies.map((item) => <span class="button">{item}</span>)}
+      <div class="tech-badges">
+        {profile.technologies.map((item) => <span class="tech-badge">{item}</span>)}
       </div>
     </aside>
   </div>
