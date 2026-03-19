@@ -1,0 +1,28 @@
+---
+import { coreStack } from "../data/stack";
+---
+
+<section class="logo-strip-section" aria-labelledby="core-stack-title">
+  <div class="container">
+    <div class="logo-strip-shell">
+      <div class="logo-strip-header">
+        <p class="logo-strip-eyebrow">Core stack</p>
+        <h2 id="core-stack-title" class="logo-strip-title">
+          Technologies I work with
+        </h2>
+        <p class="logo-strip-copy">
+          Tools and platforms I use to build and operate production systems.
+        </p>
+      </div>
+
+      <div class="logo-strip-grid">
+        {coreStack.map((item) => (
+          <div class="logo-tile">
+            <img src={item.src} alt={item.alt} class="logo-mark" loading="lazy" />
+            <span class="logo-label">{item.name}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
