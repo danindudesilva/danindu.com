@@ -1,0 +1,34 @@
+---
+import { profile } from "../data/profile";
+import { siteConfig } from "../data/site";
+---
+
+<section id="about" class="section">
+  <div class="container grid grid-2" style="align-items: center;">
+    <div>
+      <div class="eyebrow">{profile.role}</div>
+      <h1 class="section-title" style="font-size: clamp(2.5rem, 6vw, 4.5rem);">
+        {profile.tagline}
+      </h1>
+      <p class="section-copy">{profile.summary}</p>
+
+      <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem;">
+        <a class="button button-primary" href="#projects">View Projects</a>
+        <a class="button" href={siteConfig.cta.resume} target="_blank" rel="noreferrer">
+          Download CV
+        </a>
+        <a class="button" href="#contact">Contact Me</a>
+      </div>
+    </div>
+
+    <aside class="section-card" style="padding: 1.5rem;">
+      <p><strong>Name:</strong> {profile.name}</p>
+      <p><strong>Location:</strong> {profile.location}</p>
+      <p><strong>Availability:</strong> {profile.availability}</p>
+      <p><strong>Focus:</strong></p>
+      <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+        {profile.technologies.map((item) => <span class="button">{item}</span>)}
+      </div>
+    </aside>
+  </div>
+</section>
