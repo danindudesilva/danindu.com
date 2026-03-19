@@ -38,6 +38,7 @@ export type ExperienceItem = {
   summary: string;
   bullets: string[];
   technologies: string[];
+  featured?: boolean;
 };
 
 export type ProjectItem = {
@@ -45,6 +46,7 @@ export type ProjectItem = {
   summary: string;
   problem: string;
   approach: string;
+  outcome?: string;
   stack: string[];
   featured: boolean;
   links?: {
