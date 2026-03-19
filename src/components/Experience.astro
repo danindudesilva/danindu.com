@@ -7,7 +7,7 @@ import { experience } from "../data/experience";
   id="experience"
   eyebrow="Experience"
   title="Selected experience"
-  copy="A focused view of roles and work that best reflect my engineering strengths."
+  copy="Selected roles and work that reflect my experience building production systems across fintech, cloud, and connected technology."
 >
   <div class="grid">
     {
@@ -15,30 +15,33 @@ import { experience } from "../data/experience";
         .filter((item) => item.featured !== false)
         .map((item) => (
           <article class="section-card" style="padding: 1.5rem;">
-            <div style="display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap;">
+            <div style="display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; align-items: baseline;">
               <div>
                 <h3 style="margin: 0;">{item.role}</h3>
-                <p style="margin: 0.25rem 0 0; color: var(--text-muted);">{item.company}</p>
+                <p style="margin: 0.3rem 0 0; color: var(--text-muted); font-weight: 600;">
+                  {item.company}
+                </p>
               </div>
-              <p style="margin: 0; color: var(--text-muted);">{item.period}</p>
+              <p style="margin: 0; color: var(--text-muted); font-size: 0.95rem;">{item.period}</p>
             </div>
 
-            <p>{item.summary}</p>
+            <p style="margin: 1rem 0 0; color: var(--text-muted);">
+              {item.summary}
+            </p>
 
-            <ul>
-              {item.bullets.map((bullet) => <li>{bullet}</li>)}
+            <ul style="margin: 1rem 0 0; padding-left: 1.2rem;">
+              {item.bullets.map((bullet) => (
+                <li style="margin-bottom: 0.65rem;">{bullet}</li>
+              ))}
             </ul>
 
-            <div>
-            <p style="margin: 0 0 0.5rem; color: var(--text-muted); font-size: 0.95rem;"></p>
-            <div class="tech-badges">
-                {item.technologies.map((item) => (
-                    <span class="tech-badge">
-                    <span class="tech-badge-dot" aria-hidden="true"></span>
-                    {item}
-                    </span>
-                ))}
-            </div>
+            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 1rem;">
+              {item.technologies.map((tech) => (
+                <span class="tech-badge">
+                  <span class="tech-badge-dot" aria-hidden="true"></span>
+                  {tech}
+                </span>
+              ))}
             </div>
           </article>
         ))

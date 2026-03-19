@@ -7,7 +7,7 @@ import { projects } from "../data/projects";
   id="projects"
   eyebrow="Projects"
   title="Featured work"
-  copy="Selected projects and technical work that show how I think and build."
+  copy="A selection of projects that show how I approach engineering problems, technical trade-offs, and delivery."
 >
   <div class="grid grid-2">
     {
@@ -15,27 +15,41 @@ import { projects } from "../data/projects";
         .filter((project) => project.featured)
         .map((project) => (
           <article class="section-card" style="padding: 1.5rem;">
-            <h3 style="margin-top: 0;">{project.name}</h3>
-            <p>{project.summary}</p>
-            <p style="color: var(--text-muted);"><strong>Problem:</strong> {project.problem}</p>
-            <p style="color: var(--text-muted);"><strong>Approach:</strong> {project.approach}</p>
-            {project.outcome && (
-              <p style="color: var(--text-muted);"><strong>Outcome:</strong> {project.outcome}</p>
-            )}
+            <h3 style="margin: 0 0 0.75rem;">{project.name}</h3>
 
-            <div>
-            <p style="margin: 0 0 0.5rem; color: var(--text-muted); font-size: 0.95rem;"></p>
-            <div class="tech-badges">
-                {project.stack.map((item) => (
-                    <span class="tech-badge">
-                    <span class="tech-badge-dot" aria-hidden="true"></span>
-                    {item}
-                    </span>
-                ))}
-            </div>
+            <p style="margin: 0; color: var(--text-muted);">
+              {project.summary}
+            </p>
+
+            <div style="display: grid; gap: 0.9rem; margin-top: 1.1rem;">
+              <div>
+                <p style="margin: 0 0 0.2rem; font-weight: 700;">Problem</p>
+                <p style="margin: 0; color: var(--text-muted);">{project.problem}</p>
+              </div>
+
+              <div>
+                <p style="margin: 0 0 0.2rem; font-weight: 700;">Approach</p>
+                <p style="margin: 0; color: var(--text-muted);">{project.approach}</p>
+              </div>
+
+              {project.outcome && (
+                <div>
+                  <p style="margin: 0 0 0.2rem; font-weight: 700;">Outcome</p>
+                  <p style="margin: 0; color: var(--text-muted);">{project.outcome}</p>
+                </div>
+              )}
             </div>
 
-            <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 1rem;">
+              {project.stack.map((tech) => (
+                <span class="tech-badge">
+                  <span class="tech-badge-dot" aria-hidden="true"></span>
+                  {tech}
+                </span>
+              ))}
+            </div>
+
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1rem;">
               {project.links?.github && <a class="button" href={project.links.github}>GitHub</a>}
               {project.links?.demo && <a class="button" href={project.links.demo}>Demo</a>}
               {project.links?.article && <a class="button" href={project.links.article}>Write-up</a>}
