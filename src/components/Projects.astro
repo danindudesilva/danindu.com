@@ -1,0 +1,36 @@
+---
+import Section from "./Section.astro";
+import { projects } from "../data/projects";
+---
+
+<Section
+  id="projects"
+  eyebrow="Projects"
+  title="Featured work"
+  copy="Selected projects and technical work that show how I think and build."
+>
+  <div class="grid grid-2">
+    {
+      projects
+        .filter((project) => project.featured)
+        .map((project) => (
+          <article class="section-card" style="padding: 1.5rem;">
+            <h3 style="margin-top: 0;">{project.name}</h3>
+            <p>{project.summary}</p>
+            <p style="color: var(--text-muted);"><strong>Problem:</strong> {project.problem}</p>
+            <p style="color: var(--text-muted);"><strong>Approach:</strong> {project.approach}</p>
+
+            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin: 1rem 0;">
+              {project.stack.map((tech) => <span class="button">{tech}</span>)}
+            </div>
+
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+              {project.links?.github && <a class="button" href={project.links.github}>GitHub</a>}
+              {project.links?.demo && <a class="button" href={project.links.demo}>Demo</a>}
+              {project.links?.article && <a class="button" href={project.links.article}>Write-up</a>}
+            </div>
+          </article>
+        ))
+    }
+  </div>
+</Section>
