@@ -1,0 +1,36 @@
+---
+import Section from "./Section.astro";
+
+const items = [
+  {
+    title: "Backend Engineering",
+    body: "Designing and shipping maintainable backend services, APIs, and integrations with a focus on reliability and clarity.",
+  },
+  {
+    title: "Cloud & Infrastructure",
+    body: "Building and operating production systems with practical infrastructure choices, observability, and deployment discipline.",
+  },
+  {
+    title: "Product-minded Delivery",
+    body: "Working backward from user and business needs to deliver scoped, useful systems rather than unnecessary complexity.",
+  },
+];
+---
+
+<Section
+  id="expertise"
+  eyebrow="Core expertise"
+  title="What I focus on"
+  copy="A concise overview of the areas where I create the most value."
+>
+  <div class="grid grid-3">
+    {
+      items.map((item) => (
+        <article class="section-card" style="padding: 1.5rem;">
+          <h3 style="margin-top: 0;">{item.title}</h3>
+          <p style="color: var(--text-muted); margin-bottom: 0;">{item.body}</p>
+        </article>
+      ))
+    }
+  </div>
+</Section>
