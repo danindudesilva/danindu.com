@@ -84,6 +84,7 @@
     border: 1px solid var(--border);
     background: var(--bg-elevated);
     font-weight: 600;
+    cursor: pointer;
   }
   
   .button-primary {
@@ -270,7 +271,8 @@
   .logo-strip-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1rem;
+    gap: 1.5rem 1rem;
+    justify-items: center;
   }
   
   .logo-tile {
@@ -326,4 +328,57 @@
     .logo-strip-grid {
       grid-template-columns: repeat(4, minmax(0, 1fr));
     }
+  }
+
+  .hex-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.1rem;
+  }
+  
+  .hex-logo-shape {
+    width: 88px;
+    height: 96px;
+    display: grid;
+    place-items: center;
+    clip-path: polygon(
+      25% 6.7%,
+      75% 6.7%,
+      100% 50%,
+      75% 93.3%,
+      25% 93.3%,
+      0% 50%
+    );
+    border: 1px solid var(--border);
+    background: color-mix(in srgb, var(--bg-elevated) 92%, var(--accent) 8%);
+    box-shadow: var(--shadow);
+    padding: 1rem;
+    transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+  }
+  
+  .hex-logo-shape:hover {
+    transform: translateY(-2px);
+    border-color: color-mix(in srgb, var(--border) 65%, var(--accent) 35%);
+    background: color-mix(in srgb, var(--bg-elevated) 84%, var(--accent) 16%);
+  }
+  
+  .hex-logo-mark {
+    max-width: 42px;
+    max-height: 42px;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  
+  .hex-logo-label {
+    margin: 0;
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--text);
+    text-align: center;
+  }
+  
+  :root.dark .hex-logo-shape {
+    background: color-mix(in srgb, var(--bg-elevated) 88%, var(--accent) 12%);
   }
