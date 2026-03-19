@@ -1,0 +1,35 @@
+---
+import "../styles/global.css";
+import { siteConfig } from "../data/site";
+
+type Props = {
+  title?: string;
+  description?: string;
+};
+
+const {
+  title = `${siteConfig.name} | ${siteConfig.title}`,
+  description = siteConfig.description,
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, siteConfig.url).toString();
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <script is:inline>
+      const storedTheme = localStorage.getItem("theme");
+      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      const theme = storedTheme || (prefersDark ? "dark" : "light");
+      if (theme === "dark") document.documentElement.classList.add("dark");
+    </script>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
