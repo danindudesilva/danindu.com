@@ -41,7 +41,12 @@ import { siteConfig } from "../data/site";
             <div>
             <p style="margin: 0 0 0.5rem; color: var(--text-muted); font-size: 0.95rem;">Focus</p>
             <div class="tech-badges">
-                {profile.technologies.map((item) => <span class="tech-badge">{item}</span>)}
+                {profile.technologies.map((item) => (
+                    <span class="tech-badge">
+                    <span class="tech-badge-dot" aria-hidden="true"></span>
+                    {item}
+                    </span>
+                ))}
             </div>
             </div>
         </div>

@@ -19,9 +19,20 @@ import { projects } from "../data/projects";
             <p>{project.summary}</p>
             <p style="color: var(--text-muted);"><strong>Problem:</strong> {project.problem}</p>
             <p style="color: var(--text-muted);"><strong>Approach:</strong> {project.approach}</p>
+            {project.outcome && (
+              <p style="color: var(--text-muted);"><strong>Outcome:</strong> {project.outcome}</p>
+            )}
 
-            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin: 1rem 0;">
-              {project.stack.map((tech) => <span class="button">{tech}</span>)}
+            <div>
+            <p style="margin: 0 0 0.5rem; color: var(--text-muted); font-size: 0.95rem;"></p>
+            <div class="tech-badges">
+                {project.stack.map((item) => (
+                    <span class="tech-badge">
+                    <span class="tech-badge-dot" aria-hidden="true"></span>
+                    {item}
+                    </span>
+                ))}
+            </div>
             </div>
 
             <div style="display: flex; gap: 1rem; flex-wrap: wrap;">

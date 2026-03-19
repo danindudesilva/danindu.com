@@ -11,27 +11,37 @@ import { experience } from "../data/experience";
 >
   <div class="grid">
     {
-      experience.map((item) => (
-        <article class="section-card" style="padding: 1.5rem;">
-          <div style="display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap;">
-            <div>
-              <h3 style="margin: 0;">{item.role}</h3>
-              <p style="margin: 0.25rem 0 0; color: var(--text-muted);">{item.company}</p>
+      experience
+        .filter((item) => item.featured !== false)
+        .map((item) => (
+          <article class="section-card" style="padding: 1.5rem;">
+            <div style="display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap;">
+              <div>
+                <h3 style="margin: 0;">{item.role}</h3>
+                <p style="margin: 0.25rem 0 0; color: var(--text-muted);">{item.company}</p>
+              </div>
+              <p style="margin: 0; color: var(--text-muted);">{item.period}</p>
             </div>
-            <p style="margin: 0; color: var(--text-muted);">{item.period}</p>
-          </div>
 
-          <p>{item.summary}</p>
+            <p>{item.summary}</p>
 
-          <ul>
-            {item.bullets.map((bullet) => <li>{bullet}</li>)}
-          </ul>
+            <ul>
+              {item.bullets.map((bullet) => <li>{bullet}</li>)}
+            </ul>
 
-          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-            {item.technologies.map((tech) => <span class="button">{tech}</span>)}
-          </div>
-        </article>
-      ))
+            <div>
+            <p style="margin: 0 0 0.5rem; color: var(--text-muted); font-size: 0.95rem;"></p>
+            <div class="tech-badges">
+                {item.technologies.map((item) => (
+                    <span class="tech-badge">
+                    <span class="tech-badge-dot" aria-hidden="true"></span>
+                    {item}
+                    </span>
+                ))}
+            </div>
+            </div>
+          </article>
+        ))
     }
   </div>
 </Section>
