@@ -156,6 +156,10 @@
     background: color-mix(in srgb, var(--accent) 88%, black 12%);
   }
   
+  .button svg {
+    flex: 0 0 auto;
+  }
+  
   .grid {
     display: grid;
     gap: 1.5rem;
