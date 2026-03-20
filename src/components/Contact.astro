@@ -17,7 +17,9 @@ import { siteConfig } from "../data/site";
 
     <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1rem;">
       {
-        siteConfig.social.map((item) => (
+        siteConfig.social
+        .filter((item) => item.name !== "medium")
+        .map((item) => (
           <a class={item.name === "email" ? "button button-primary": "button"} href={item.url}>
             <Icon name={item.name} />
             {item.label}
