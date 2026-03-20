@@ -16,25 +16,16 @@ import { siteConfig } from "../data/site";
     </p>
 
     <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1rem;">
-      <a class="button button-primary" href={siteConfig.social.email}>
-        <Icon name="email" />
-        Email
-      </a>
-    
-      <a class="button" href={siteConfig.social.github} target="_blank" rel="noreferrer">
-        <Icon name="github" />
-        GitHub
-      </a>
-    
-      <a class="button" href={siteConfig.social.linkedin} target="_blank" rel="noreferrer">
-        <Icon name="linkedin" />
-        LinkedIn
-      </a>
-    
-      <a class="button" href={siteConfig.social.upwork} target="_blank" rel="noreferrer">
-        <Icon name="upwork" />
-        Upwork
-      </a>
+      {
+        siteConfig.social
+        .filter((item) => item.name !== "medium")
+        .map((item) => (
+          <a class={item.name === "email" ? "button button-primary": "button"} href={item.url}>
+            <Icon name={item.name} />
+            {item.label}
+          </a>
+        ))
+      }
     </div>
   </div>
 </Section>

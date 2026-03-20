@@ -31,11 +31,9 @@ const structuredData = {
       jobTitle: profile.role,
       description: profile.summary,
       url: `${siteConfig.url}/`,
-      sameAs: [
-        siteConfig.social.github,
-        siteConfig.social.linkedin,
-        siteConfig.social.upwork,
-      ],
+      sameAs: siteConfig.social
+        .filter((item) => item.name !== "email")
+        .map((item) => item.url),
       homeLocation: {
         "@type": "Country",
         name: profile.location,

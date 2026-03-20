@@ -3,11 +3,19 @@ export type NavItem = {
   href: `#${string}`;
 };
 
-export type SocialLinks = {
-  github: string;
-  linkedin: string;
-  upwork: string;
-  email: string;
+export type SocialLinkItemName =
+  | "email"
+  | "github"
+  | "linkedin"
+  | "upwork"
+  | "medium";
+
+export type SocialLinks = SocialLinkItem[];
+
+export type SocialLinkItem = {
+  name: SocialLinkItemName;
+  label: string;
+  url: string;
 };
 
 export type SiteConfig = {
