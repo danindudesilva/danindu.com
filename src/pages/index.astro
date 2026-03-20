@@ -9,9 +9,43 @@ import Projects from "../components/Projects.astro";
 import Writing from "../components/Writing.astro";
 import Contact from "../components/Contact.astro";
 import Footer from "../components/Footer.astro";
+import { profile } from "../data/profile";
+import { siteConfig } from "../data/site";
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ProfilePage",
+      "@id": `${siteConfig.url}/#profile`,
+      url: `${siteConfig.url}/`,
+      mainEntity: {
+        "@id": `${siteConfig.url}/#person`,
+      },
+      description: siteConfig.description,
+    },
+    {
+      "@type": "Person",
+      "@id": `${siteConfig.url}/#person`,
+      name: profile.name,
+      jobTitle: profile.role,
+      description: profile.summary,
+      url: `${siteConfig.url}/`,
+      sameAs: [
+        siteConfig.social.github,
+        siteConfig.social.linkedin,
+        siteConfig.social.upwork,
+      ],
+      homeLocation: {
+        "@type": "Country",
+        name: profile.location,
+      },
+    },
+  ],
+};
 ---
 
-<BaseLayout>
+<BaseLayout structuredData={structuredData}>
   <Header />
   <main id="main-content">
     <Hero />
