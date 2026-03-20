@@ -57,7 +57,7 @@
   .section {
     padding: 5rem 0;
   }
-  
+
   .section-alt {
     background: color-mix(in srgb, var(--bg-soft) 55%, transparent);
   }
@@ -584,4 +584,22 @@
       grid-template-columns: 1fr auto;
       align-items: start;
     }
+  }
+
+  .skip-link {
+    position: absolute;
+    left: 1rem;
+    top: -3rem;
+    z-index: 100;
+    padding: 0.75rem 1rem;
+    border-radius: 0.75rem;
+    background: var(--bg-elevated);
+    color: var(--text);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+    transition: top 160ms ease;
+  }
+  
+  .skip-link:focus {
+    top: 1rem;
   }
