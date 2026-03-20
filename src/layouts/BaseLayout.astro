@@ -5,11 +5,13 @@ import { siteConfig } from "../data/site";
 type Props = {
   title?: string;
   description?: string;
+  structuredData?: Record<string, unknown> | Record<string, unknown>[];
 };
 
 const {
   title = `${siteConfig.name} | ${siteConfig.title}`,
   description = siteConfig.description,
+  structuredData,
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, siteConfig.url).toString();
@@ -37,6 +39,13 @@ const ogImageURL = new URL("/og-image.png", siteConfig.url).toString();
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImageURL} />
+
+    {structuredData && (
+      <script
+        type="application/ld+json"
+        set:html={JSON.stringify(structuredData)}
+      />
+    )}
 
     <script is:inline>
       const storedTheme = localStorage.getItem("theme");
