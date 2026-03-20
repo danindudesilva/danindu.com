@@ -34,6 +34,11 @@ export const siteConfig: SiteConfig = {
       label: "Upwork",
       url: "https://www.upwork.com/freelancers/danindu",
     },
+    {
+      name: "medium",
+      label: "Medium",
+      url: "https://danindu.medium.com/",
+    },
   ],
   cta: {
     resume: "/danindu-de-silva-cv.pdf",

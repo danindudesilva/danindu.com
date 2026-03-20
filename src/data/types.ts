@@ -3,7 +3,12 @@ export type NavItem = {
   href: `#${string}`;
 };
 
-export type SocialLinkItemName = "email" | "github" | "linkedin" | "upwork";
+export type SocialLinkItemName =
+  | "email"
+  | "github"
+  | "linkedin"
+  | "upwork"
+  | "medium";
 
 export type SocialLinks = SocialLinkItem[];
 
