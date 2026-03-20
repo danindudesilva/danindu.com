@@ -13,12 +13,28 @@ export const siteConfig: SiteConfig = {
     { label: "Writing", href: "#writing" },
     { label: "Contact", href: "#contact" },
   ],
-  social: {
-    github: "https://github.com/danindudesilva",
-    linkedin: "https://www.linkedin.com/in/danindudesilva",
-    upwork: "https://www.upwork.com/freelancers/danindu",
-    email: "mailto:hi@danindu.com",
-  },
+  social: [
+    {
+      name: "email",
+      label: "Email",
+      url: "mailto:hi@danindu.com",
+    },
+    {
+      name: "github",
+      label: "GitHub",
+      url: "https://github.com/danindudesilva",
+    },
+    {
+      name: "linkedin",
+      label: "LinkedIn",
+      url: "https://www.linkedin.com/in/danindudesilva",
+    },
+    {
+      name: "upwork",
+      label: "Upwork",
+      url: "https://www.upwork.com/freelancers/danindu",
+    },
+  ],
   cta: {
     resume: "/danindu-de-silva-cv.pdf",
   },
