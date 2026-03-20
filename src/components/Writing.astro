@@ -1,5 +1,6 @@
 ---
 import Section from "./Section.astro";
+import Icon from "./Icon.astro";
 import { featuredWriting } from "../data/writing";
 ---
 
@@ -29,6 +30,7 @@ import { featuredWriting } from "../data/writing";
 
           <div style="margin-top: 1rem;">
             <a class="button" href={item.url} target="_blank" rel="noreferrer">
+              <Icon name="medium" />
               Read Article
             </a>
           </div>
