@@ -16,6 +16,7 @@ export const siteConfig: SiteConfig = {
   social: {
     github: "https://github.com/danindudesilva",
     linkedin: "https://www.linkedin.com/in/danindudesilva",
+    upwork: "https://www.upwork.com/freelancers/danindu",
     email: "mailto:hi@danindu.com",
   },
   cta: {
