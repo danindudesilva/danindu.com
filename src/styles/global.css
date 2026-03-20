@@ -55,7 +55,7 @@
   }
   
   .section {
-    padding: 5rem 0;
+    padding: 4rem 0;
   }
 
   .section-alt {
@@ -64,12 +64,12 @@
 
   @media (min-width: 768px) {
     .section {
-      padding: 6rem 0;
+      padding: 4rem 0;
     }
   }
 
   section[id] {
-    scroll-margin-top: 6rem;
+    scroll-margin-top: 2rem;
   }
 
   .section-card {
@@ -260,13 +260,7 @@
   main {
     display: block;
   }
-  
-  @media (min-width: 768px) {
-    .section {
-      padding: 6.5rem 0;
-    }
-  }
-  
+
   .section-head {
     margin-bottom: 2rem;
   }
@@ -441,7 +435,7 @@
   }
   
   .logo-tile,
-  .hex-logo-shape {
+  .tech-logo-shape {
     transition:
       transform 160ms ease,
       border-color 160ms ease,
@@ -492,39 +486,31 @@
     }
   }
 
-  .hex-logo {
+  .tech-logo {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 0.1rem;
   }
   
-  .hex-logo-shape {
-    width: 88px;
-    height: 96px;
+  .tech-logo-shape {
+    width: 60px;
+    height: 60px;
     display: grid;
     place-items: center;
-    clip-path: polygon(
-      25% 6.7%,
-      75% 6.7%,
-      100% 50%,
-      75% 93.3%,
-      25% 93.3%,
-      0% 50%
-    );
-    border: 1px solid var(--border);
+    border-radius: 50%;
     background: color-mix(in srgb, var(--bg-elevated) 92%, var(--accent) 8%);
     box-shadow: var(--shadow-sm);
-    padding: 1rem;
+    padding: 0.8rem;
   }
   
-  .hex-logo-shape:hover {
+  .tech-logo-shape:hover {
     transform: translateY(-2px);
     border-color: color-mix(in srgb, var(--border) 65%, var(--accent) 35%);
-    background: color-mix(in srgb, var(--bg-elevated) 84%, var(--accent) 16%);
+    background: color-mix(in srgb, var(--bg-elevated) 84%, var(--accent) 40%);
   }
   
-  .hex-logo-mark {
+  .tech-logo-mark {
     max-width: 42px;
     max-height: 42px;
     width: 100%;
@@ -532,7 +518,7 @@
     object-fit: contain;
   }
   
-  .hex-logo-label {
+  .tech-logo-label {
     margin: 0;
     font-size: 0.92rem;
     font-weight: 600;
@@ -540,7 +526,7 @@
     text-align: center;
   }
   
-  :root.dark .hex-logo-shape {
+  :root.dark .tech-logo-shape {
     background: color-mix(in srgb, var(--bg-elevated) 88%, var(--accent) 12%);
   }
 
