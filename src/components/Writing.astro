@@ -7,17 +7,31 @@ import { featuredWriting } from "../data/writing";
   id="writing"
   eyebrow="Writing"
   title="Technical writing and notes"
-  copy="A small selection of writing that reflects how I communicate technical ideas."
+  copy="A small selection of engineering writing that reflects how I communicate technical ideas and practical solutions."
 >
-  <div class="grid">
+  <div class="grid grid-2">
     {
       featuredWriting.map((item) => (
         <article class="section-card" style="padding: 1.25rem;">
-          <h3 style="margin-top: 0;">{item.title}</h3>
-          <p style="color: var(--text-muted);">{item.description}</p>
-          <p style="margin-bottom: 0;">
-            <a class="button" href={item.url}>{item.platform} · {item.date}</a>
+          <p style="margin: 0 0 0.4rem; color: var(--accent); font-size: 0.9rem; font-weight: 600;">
+            {item.platform}
           </p>
+
+          <h3 style="margin: 0 0 0.5rem;">{item.title}</h3>
+
+          <p style="margin: 0; color: var(--text-muted);">
+            {item.description}
+          </p>
+
+          <p style="margin: 0.9rem 0 0; color: var(--text-muted); font-size: 0.95rem;">
+            {item.date}
+          </p>
+
+          <div style="margin-top: 1rem;">
+            <a class="button" href={item.url} target="_blank" rel="noreferrer">
+              Read Article
+            </a>
+          </div>
         </article>
       ))
     }

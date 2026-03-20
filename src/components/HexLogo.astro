@@ -1,0 +1,23 @@
+---
+type Props = {
+  name: string;
+  src: string;
+  alt: string;
+  scale?: number;
+};
+
+const { name, src, alt, scale = 1 } = Astro.props;
+---
+
+<div class="hex-logo" aria-label={name}>
+  <div class="hex-logo-shape">
+    <img
+      src={src}
+      alt={alt}
+      class="hex-logo-mark"
+      loading="lazy"
+      style={`transform: scale(${scale});`}
+    />
+  </div>
+  <span class="hex-logo-label">{name}</span>
+</div>

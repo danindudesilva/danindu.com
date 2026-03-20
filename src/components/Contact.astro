@@ -1,21 +1,24 @@
 ---
 import Section from "./Section.astro";
 import { siteConfig } from "../data/site";
-import { profile } from "../data/profile";
 ---
 
 <Section
   id="contact"
   eyebrow="Contact"
   title="Let’s connect"
-  copy={profile.availability}
+  copy="I’m open to software engineering opportunities and selected freelance backend work."
 >
   <div class="section-card" style="padding: 1.5rem;">
-    <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+    <p style="margin-top: 0; color: var(--text-muted); max-width: 58ch;">
+      Whether you’re hiring for a software engineering role or looking for help with backend systems and integrations, I’d be glad to hear from you.
+    </p>
+
+    <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1rem;">
       <a class="button button-primary" href={siteConfig.social.email}>Email</a>
-      <a class="button" href={siteConfig.social.linkedin}>LinkedIn</a>
-      <a class="button" href={siteConfig.social.github}>GitHub</a>
-      <a class="button" href={siteConfig.cta.resume}>Download CV</a>
+      <a class="button" href={siteConfig.social.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
+      <a class="button" href={siteConfig.social.github} target="_blank" rel="noreferrer">GitHub</a>
+      <a class="button" href={siteConfig.cta.resume} target="_blank" rel="noreferrer">Download CV</a>
     </div>
   </div>
 </Section>

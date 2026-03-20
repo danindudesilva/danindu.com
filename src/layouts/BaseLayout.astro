@@ -13,6 +13,7 @@ const {
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, siteConfig.url).toString();
+const ogImageURL = new URL("/og-image.png", siteConfig.url).toString();
 ---
 
 <!doctype html>
@@ -23,7 +24,20 @@ const canonicalURL = new URL(Astro.url.pathname, siteConfig.url).toString();
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalURL} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="theme-color" content="#f8fafc" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:image" content={ogImageURL} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageURL} />
+
     <script is:inline>
       const storedTheme = localStorage.getItem("theme");
       const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
@@ -32,6 +46,7 @@ const canonicalURL = new URL(Astro.url.pathname, siteConfig.url).toString();
     </script>
   </head>
   <body>
+    <a href="#main-content" class="skip-link">Skip to content</a>
     <slot />
   </body>
 </html>

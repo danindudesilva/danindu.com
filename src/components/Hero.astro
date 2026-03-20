@@ -3,16 +3,20 @@ import { profile } from "../data/profile";
 import { siteConfig } from "../data/site";
 ---
 
-<section id="about" class="section">
-  <div class="container grid grid-2" style="align-items: center;">
-    <div>
+<section id="about" class="section hero-section">
+  <div class="container hero-grid">
+    <div class="hero-copy">
       <div class="eyebrow">{profile.role}</div>
-      <h1 class="section-title" style="font-size: clamp(2.5rem, 6vw, 4.5rem);">
+
+      <h1 class="hero-title">
         {profile.tagline}
       </h1>
-      <p class="section-copy">{profile.summary}</p>
 
-      <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem;">
+      <p class="hero-summary">
+        {profile.summary}
+      </p>
+
+      <div class="hero-actions">
         <a class="button button-primary" href="#projects">View Projects</a>
         <a class="button" href={siteConfig.cta.resume} target="_blank" rel="noreferrer">
           Download CV
@@ -21,35 +25,35 @@ import { siteConfig } from "../data/site";
       </div>
     </div>
 
-    <aside class="section-card" style="padding: 1.5rem;">
-        <div style="display: grid; gap: 1rem;">
-            <div>
-            <p style="margin: 0 0 0.25rem; color: var(--text-muted); font-size: 0.95rem;">Name</p>
-            <p style="margin: 0; font-weight: 600;">{profile.name}</p>
-            </div>
-
-            <div>
-            <p style="margin: 0 0 0.25rem; color: var(--text-muted); font-size: 0.95rem;">Location</p>
-            <p style="margin: 0; font-weight: 600;">{profile.location}</p>
-            </div>
-
-            <div>
-            <p style="margin: 0 0 0.25rem; color: var(--text-muted); font-size: 0.95rem;">Availability</p>
-            <p style="margin: 0; font-weight: 600;">{profile.availability}</p>
-            </div>
-
-            <div>
-            <p style="margin: 0 0 0.5rem; color: var(--text-muted); font-size: 0.95rem;">Focus</p>
-            <div class="tech-badges">
-                {profile.technologies.map((item) => (
-                    <span class="tech-badge">
-                    <span class="tech-badge-dot" aria-hidden="true"></span>
-                    {item}
-                    </span>
-                ))}
-            </div>
-            </div>
+    <aside class="section-card hero-panel">
+      <div class="hero-panel-grid">
+        <div>
+          <p class="hero-panel-label">Name</p>
+          <p class="hero-panel-value">{profile.name}</p>
         </div>
+
+        <div>
+          <p class="hero-panel-label">Location</p>
+          <p class="hero-panel-value">{profile.location}</p>
+        </div>
+
+        <div>
+          <p class="hero-panel-label">Availability</p>
+          <p class="hero-panel-value">{profile.availability}</p>
+        </div>
+
+        <div>
+          <p class="hero-panel-label">Focus</p>
+          <div class="tech-badges">
+            {profile.technologies.map((item) => (
+              <span class="tech-badge">
+                <span class="tech-badge-dot" aria-hidden="true"></span>
+                {item}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
     </aside>
   </div>
 </section>
