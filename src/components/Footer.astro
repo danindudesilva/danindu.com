@@ -2,10 +2,19 @@
 import { siteConfig } from "../data/site";
 ---
 
-<footer class="section" style="padding-top: 2rem;">
-  <div class="container" style="border-top: 1px solid var(--border); padding-top: 2rem; color: var(--text-muted);">
-    <p style="margin: 0;">
-      © {new Date().getFullYear()} {siteConfig.name}. Built with Astro, TypeScript, and Firebase Hosting.
-    </p>
+<footer class="site-footer">
+  <div class="container site-footer-inner">
+    <div>
+      <p class="site-footer-title">Danindu de Silva</p>
+      <p class="site-footer-copy">
+        Software Engineer focused on backend systems, cloud-native products, and practical engineering.
+      </p>
+    </div>
+
+    <div class="site-footer-links">
+      <a href={siteConfig.social.github} target="_blank" rel="noreferrer">GitHub</a>
+      <a href={siteConfig.social.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
+      <a href={siteConfig.social.email}>Email</a>
+    </div>
   </div>
 </footer>
