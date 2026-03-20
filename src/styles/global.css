@@ -2,22 +2,32 @@
 
 :root {
     --bg: #f8fafc;
+    --bg-soft: #f1f5f9;
     --bg-elevated: #ffffff;
     --text: #0f172a;
     --text-muted: #475569;
     --border: #e2e8f0;
+    --border-strong: #cbd5e1;
     --accent: #2563eb;
-    --shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+    --accent-soft: rgba(37, 99, 235, 0.12);
+    --shadow-sm: 0 6px 18px rgba(15, 23, 42, 0.05);
+    --shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+    --radius-lg: 1.25rem;
+    --radius-xl: 1.5rem;
   }
   
   :root.dark {
     --bg: #0f172a;
+    --bg-soft: #111827;
     --bg-elevated: #111827;
     --text: #e5e7eb;
     --text-muted: #94a3b8;
     --border: #1f2937;
+    --border-strong: #334155;
     --accent: #60a5fa;
-    --shadow: 0 10px 30px rgba(2, 6, 23, 0.35);
+    --accent-soft: rgba(96, 165, 250, 0.16);
+    --shadow-sm: 0 8px 18px rgba(2, 6, 23, 0.22);
+    --shadow: 0 14px 32px rgba(2, 6, 23, 0.34);
   }
   
   html {
@@ -27,7 +37,9 @@
   body {
     margin: 0;
     font-family: Inter, system-ui, sans-serif;
-    background: var(--bg);
+    background:
+      radial-gradient(circle at top, var(--accent-soft) 0%, transparent 28%),
+      var(--bg);
     color: var(--text);
     line-height: 1.6;
   }
@@ -45,6 +57,16 @@
   .section {
     padding: 5rem 0;
   }
+  
+  .section-alt {
+    background: color-mix(in srgb, var(--bg-soft) 55%, transparent);
+  }
+
+  @media (min-width: 768px) {
+    .section {
+      padding: 6rem 0;
+    }
+  }
 
   section[id] {
     scroll-margin-top: 6rem;
@@ -53,15 +75,21 @@
   .section-card {
     background: var(--bg-elevated);
     border: 1px solid var(--border);
-    border-radius: 1.25rem;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    transition:
+      transform 180ms ease,
+      box-shadow 180ms ease,
+      border-color 180ms ease,
+      background 180ms ease;
+  }
+  
+  .section-card:hover {
+    transform: translateY(-2px);
+    border-color: color-mix(in srgb, var(--border) 65%, var(--accent) 35%);
     box-shadow: var(--shadow);
   }
 
-  .section-card p,
-  .section-card li {
-    max-width: 68ch;
-  }
-  
   .eyebrow {
     font-size: 0.875rem;
     color: var(--accent);
@@ -71,13 +99,24 @@
   
   .section-title {
     font-size: clamp(1.75rem, 4vw, 2.5rem);
-    line-height: 1.1;
+    line-height: 1.08;
+    letter-spacing: -0.03em;
     margin: 0.5rem 0 1rem;
   }
   
   .section-copy {
     color: var(--text-muted);
     max-width: 65ch;
+    font-size: 1.02rem;
+  }
+  
+  .section-card p,
+  .section-card li {
+    max-width: 68ch;
+  }
+  
+  .section-card li {
+    line-height: 1.65;
   }
   
   .button {
@@ -90,14 +129,21 @@
     padding: 0.75rem 1rem;
     border: 1px solid var(--border);
     background: var(--bg-elevated);
+    color: var(--text);
     font-weight: 600;
     cursor: pointer;
-    transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.04) inset;
+    transition:
+      transform 160ms ease,
+      border-color 160ms ease,
+      background 160ms ease,
+      box-shadow 160ms ease;
   }
   
   .button:hover {
     transform: translateY(-1px);
     border-color: color-mix(in srgb, var(--border) 65%, var(--accent) 35%);
+    box-shadow: var(--shadow-sm);
   }
   
   .button-primary {
@@ -129,21 +175,22 @@
     position: sticky;
     top: 0;
     z-index: 50;
-    border-bottom: 1px solid var(--border);
-    background: color-mix(in srgb, var(--bg) 88%, transparent);
-    backdrop-filter: blur(12px);
+    border-bottom: 1px solid color-mix(in srgb, var(--border) 80%, transparent);
+    background: color-mix(in srgb, var(--bg) 82%, transparent);
+    backdrop-filter: blur(14px);
   }
   
   .header-inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    min-height: 4rem;
+    min-height: 4.25rem;
     gap: 1rem;
   }
   
   .brand {
     font-weight: 700;
+    letter-spacing: -0.02em;
   }
   
   .menu-button {
@@ -180,6 +227,11 @@
   .nav-link {
     color: var(--text-muted);
     font-weight: 500;
+    transition: color 160ms ease;
+  }
+  
+  .nav-link:hover {
+    color: var(--text);
   }
   
   @media (min-width: 768px) {
@@ -256,6 +308,8 @@
     position: relative;
     overflow: hidden;
     padding: 1.5rem;
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow);
   }
   
   .hero-panel::before {
@@ -311,18 +365,24 @@
     padding: 0.5rem 0.8rem;
     border: 1px solid var(--border);
     border-radius: 999px;
-    background: color-mix(in srgb, var(--bg-elevated) 92%, var(--accent) 8%);
+    background: color-mix(in srgb, var(--bg-elevated) 94%, var(--accent) 6%);
     color: var(--text);
     font-size: 0.92rem;
     font-weight: 600;
     line-height: 1;
     white-space: nowrap;
+    transition: border-color 160ms ease, background 160ms ease;
+  }
+  
+  .tech-badge:hover {
+    border-color: color-mix(in srgb, var(--border) 65%, var(--accent) 35%);
+    background: color-mix(in srgb, var(--bg-elevated) 88%, var(--accent) 12%);
   }
   
   :root.dark .tech-badge {
     background: color-mix(in srgb, var(--bg-elevated) 88%, var(--accent) 12%);
   }
-
+  
   .tech-badge-dot {
     width: 0.45rem;
     height: 0.45rem;
@@ -338,9 +398,9 @@
   
   .logo-strip-shell {
     border: 1px solid var(--border);
-    border-radius: 1.5rem;
+    border-radius: var(--radius-xl);
     background: color-mix(in srgb, var(--bg-elevated) 94%, var(--accent) 6%);
-    box-shadow: var(--shadow);
+    box-shadow: var(--shadow-sm);
     padding: 1.5rem;
   }
   
@@ -376,16 +436,13 @@
     justify-items: center;
   }
   
-  .logo-tile {
-    display: flex;
-    align-items: center;
-    gap: 0.85rem;
-    min-height: 72px;
-    padding: 0.9rem 1rem;
-    border: 1px solid var(--border);
-    border-radius: 1rem;
-    background: color-mix(in srgb, var(--bg-elevated) 96%, transparent);
-    transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+  .logo-tile,
+  .hex-logo-shape {
+    transition:
+      transform 160ms ease,
+      border-color 160ms ease,
+      background 160ms ease,
+      box-shadow 160ms ease;
   }
   
   .logo-tile:hover {
@@ -453,9 +510,8 @@
     );
     border: 1px solid var(--border);
     background: color-mix(in srgb, var(--bg-elevated) 92%, var(--accent) 8%);
-    box-shadow: var(--shadow);
+    box-shadow: var(--shadow-sm);
     padding: 1rem;
-    transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
   }
   
   .hex-logo-shape:hover {
@@ -482,4 +538,50 @@
   
   :root.dark .hex-logo-shape {
     background: color-mix(in srgb, var(--bg-elevated) 88%, var(--accent) 12%);
+  }
+
+  .site-footer {
+    padding: 2.5rem 0 3rem;
+  }
+  
+  .site-footer-inner {
+    border-top: 1px solid var(--border);
+    padding-top: 2rem;
+    display: grid;
+    gap: 1rem;
+  }
+  
+  .site-footer-title {
+    margin: 0;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+  
+  .site-footer-copy {
+    margin: 0.4rem 0 0;
+    color: var(--text-muted);
+    max-width: 56ch;
+  }
+  
+  .site-footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  .site-footer-links a {
+    color: var(--text-muted);
+    font-weight: 500;
+    transition: color 160ms ease;
+  }
+  
+  .site-footer-links a:hover {
+    color: var(--text);
+  }
+  
+  @media (min-width: 768px) {
+    .site-footer-inner {
+      grid-template-columns: 1fr auto;
+      align-items: start;
+    }
   }
