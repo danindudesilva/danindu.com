@@ -5,7 +5,7 @@ export const siteConfig: SiteConfig = {
   title: "Software Engineer",
   description:
     "Danindu de Silva is a software engineer focused on backend systems, cloud-native products, fintech workflows, and practical engineering.",
-  url: "https://www.danindu.com",
+  url: "https://danindu.com",
   nav: [
     { label: "About", href: "#about" },
     { label: "Experience", href: "#experience" },
