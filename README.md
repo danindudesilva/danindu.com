@@ -1,4 +1,4 @@
-# Personal Resume Website
+# Danindu de Silva — Personal Resume Website
 
 A personal resume and portfolio website built with Astro and TypeScript, designed to be fast, maintainable, and easy to update.
 
@@ -9,13 +9,14 @@ A personal resume and portfolio website built with Astro and TypeScript, designe
 - CSS
 - Firebase Hosting
 
-## Project Structure
+## Structure
 
-- `src/data/` — typed site content such as profile, experience, and projects
-- `src/content/` — authored writing content managed through Astro content collections
-- `src/components/` — reusable UI sections
-- `src/layouts/` — page layout components
+- `src/data/` — typed structured content such as profile, experience, projects, and site configuration
+- `src/content/` — authored content managed through Astro content collections
+- `src/components/` — reusable UI sections and layout pieces
+- `src/layouts/` — layout components
 - `src/pages/` — route entrypoints
+- `public/` — static assets such as the favicon, CV, and logo files
 
 ## Development
 
