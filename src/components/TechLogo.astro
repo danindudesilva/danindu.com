@@ -9,15 +9,15 @@ type Props = {
 const { name, src, alt, scale = 1 } = Astro.props;
 ---
 
-<div class="hex-logo" aria-label={name}>
-  <div class="hex-logo-shape">
+<div class="tech-logo" aria-label={name}>
+  <div class="tech-logo-shape">
     <img
       src={src}
       alt={alt}
-      class="hex-logo-mark"
+      class="tech-logo-mark"
       loading="lazy"
       style={`transform: scale(${scale});`}
     />
   </div>
-  <span class="hex-logo-label">{name}</span>
+  <span class="tech-logo-label">{name}</span>
 </div>

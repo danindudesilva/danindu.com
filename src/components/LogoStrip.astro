@@ -1,6 +1,6 @@
 ---
 import { coreStack } from "../data/stack";
-import HexLogo from "./HexLogo.astro";
+import TechLogo from "./TechLogo.astro";
 ---
 
 <section class="logo-strip-section" aria-labelledby="core-stack-title">
@@ -18,7 +18,7 @@ import HexLogo from "./HexLogo.astro";
 
       <div class="logo-strip-grid">
         {coreStack.map((item) => (
-          <HexLogo name={item.name} src={item.src} alt={item.alt} />
+          <TechLogo name={item.name} src={item.src} alt={item.alt} />
         ))}
       </div>
     </div>
