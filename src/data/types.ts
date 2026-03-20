@@ -6,6 +6,7 @@ export type NavItem = {
 export type SocialLinks = {
   github: string;
   linkedin: string;
+  upwork: string;
   email: string;
 };
 

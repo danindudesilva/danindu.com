@@ -1,5 +1,6 @@
 ---
 import Section from "./Section.astro";
+import Icon from "./Icon.astro";
 import { siteConfig } from "../data/site";
 ---
 
@@ -15,10 +16,25 @@ import { siteConfig } from "../data/site";
     </p>
 
     <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1rem;">
-      <a class="button button-primary" href={siteConfig.social.email}>Email</a>
-      <a class="button" href={siteConfig.social.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
-      <a class="button" href={siteConfig.social.github} target="_blank" rel="noreferrer">GitHub</a>
-      <a class="button" href={siteConfig.cta.resume} target="_blank" rel="noreferrer">Download CV</a>
+      <a class="button button-primary" href={siteConfig.social.email}>
+        <Icon name="email" />
+        Email
+      </a>
+    
+      <a class="button" href={siteConfig.social.github} target="_blank" rel="noreferrer">
+        <Icon name="github" />
+        GitHub
+      </a>
+    
+      <a class="button" href={siteConfig.social.linkedin} target="_blank" rel="noreferrer">
+        <Icon name="linkedin" />
+        LinkedIn
+      </a>
+    
+      <a class="button" href={siteConfig.social.upwork} target="_blank" rel="noreferrer">
+        <Icon name="upwork" />
+        Upwork
+      </a>
     </div>
   </div>
 </Section>
