@@ -41,6 +41,6 @@ export const siteConfig: SiteConfig = {
     },
   ],
   cta: {
-    resume: "/danindu-de-silva-cv.pdf",
+    resume: "/danindu-de-silva-cv-public.pdf",
   },
 };
