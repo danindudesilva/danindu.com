@@ -78,20 +78,23 @@ export const projects: ProjectItem[] = [
       "Created a useful reference implementation for payment workflow discussions and future reuse.",
     stack: ["Go", "Stripe", "Cloud Run", "TypeScript"],
     featured: true,
+    links: {
+      github: "https://github.com/danindudesilva/payments-service",
+      demo: "https://pay.danindu.com/demo",
+    },
+  },
+  {
+    name: "AI Support Assistant",
+    summary:
+      "An open-source Go project to explore retrieval, embeddings, and production-minded AI integration patterns.",
+    problem:
+      "I wanted a hands-on way to learn modern AI system design while keeping the code modular and maintainable.",
+    approach:
+      "Designed the project as reusable modules with testing, observability, and clean interfaces.",
+    outcome:
+      "A strong learning and portfolio project that demonstrates engineering discipline.",
+    stack: ["Go", "PostgreSQL", "pgvector", "Docker"],
+    featured: false,
     links: {},
   },
-  // {
-  //   name: "AI Support Assistant",
-  //   summary:
-  //     "An open-source Go project to explore retrieval, embeddings, and production-minded AI integration patterns.",
-  //   problem:
-  //     "I wanted a hands-on way to learn modern AI system design while keeping the code modular and maintainable.",
-  //   approach:
-  //     "Designed the project as reusable modules with testing, observability, and clean interfaces.",
-  //   outcome:
-  //     "A strong learning and portfolio project that demonstrates engineering discipline.",
-  //   stack: ["Go", "PostgreSQL", "pgvector", "Docker"],
-  //   featured: true,
-  //   links: {},
-  // },
 ];
