@@ -1,6 +1,8 @@
 ---
 import Section from "./Section.astro";
 import { projects } from "../data/projects";
+import Icon from "./Icon.astro";
+
 ---
 
 <Section
@@ -50,9 +52,9 @@ import { projects } from "../data/projects";
             </div>
 
             <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1rem;">
-              {project.links?.github && <a class="button" href={project.links.github}>GitHub</a>}
-              {project.links?.demo && <a class="button" href={project.links.demo}>Demo</a>}
-              {project.links?.article && <a class="button" href={project.links.article}>Write-up</a>}
+              {project.links?.github && <a class="button" href={project.links.github} target="_blank" rel="noreferrer"><Icon name={"github"} />GitHub</a>}
+              {project.links?.demo && <a class="button" href={project.links.demo} target="_blank" rel="noreferrer">Demo</a>}
+              {project.links?.article && <a class="button" href={project.links.article} target="_blank" rel="noreferrer">Write-up</a>}
             </div>
           </article>
         ))
